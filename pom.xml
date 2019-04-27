@@ -12,6 +12,7 @@
         <module>gos-rpc-api</module>
         <module>gos-rpc-server</module>
         <module>gos-rpc-client</module>
+        <module>gos-dataserver</module>
     </modules>
 
     <properties>
@@ -43,6 +44,11 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.9</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

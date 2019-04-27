@@ -1,0 +1,32 @@
+syntax = "proto2";
+
+package pb;
+
+option java_package = "org.gilmour.gos.pb";
+option java_outer_classname = "FileTransProto";
+
+message CommonFile {
+    required string FileID = 1;
+    required int64 FileSize = 2;
+    required bytes FileData = 3;
+}
+
+message FileRequest{
+    enum FileOperation{
+        GET = 0;
+        PUT = 1;
+    }
+    required FileOperation operation = 1;
+    required string FileID = 2;
+    optional CommonFile file = 3;
+}
+
+message FileResponse{
+    enum Status{
+        OK = 0;
+        Err = 1;
+    }
+    required Status status = 1;
+    optional string msg = 2;
+    optional CommonFile file = 3;
+}

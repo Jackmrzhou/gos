@@ -14,11 +14,21 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public String PutImage(GImage image) {
+        try {
+            return imageRepo.Put(image);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public GImage GetImage(String GosKey) {
+        try {
+            return imageRepo.Get(GosKey);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 }

@@ -25,6 +25,14 @@ public final class DefaultGIamgeImpl implements GImage {
         Format = format;
     }
 
+    public DefaultGIamgeImpl(byte[] data) throws IOException{
+        this.data = data;
+        BufferedImage imageReader = ImageIO.read(new ByteArrayInputStream(data));
+        height = imageReader.getHeight();
+        width = imageReader.getWidth();
+        Format = ImageFormat.JPG;
+    }
+
     @Override
     public int Height() {
         return height;
