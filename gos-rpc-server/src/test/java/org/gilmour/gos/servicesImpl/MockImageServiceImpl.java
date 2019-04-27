@@ -1,12 +1,10 @@
 package org.gilmour.gos.servicesImpl;
 
 import org.gilmour.gos.enums.ImageFormat;
-import org.gilmour.gos.models.DefaultGIamgeImpl;
+import org.gilmour.gos.models.DefaultGImageImpl;
 import org.gilmour.gos.models.GImage;
 import org.gilmour.gos.services.ImageService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.TestComponent;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +26,6 @@ public class MockImageServiceImpl implements ImageService {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return new DefaultGIamgeImpl(uri, ImageFormat.JPG);
+        return new DefaultGImageImpl(uri, ImageFormat.JPG);
     }
 }

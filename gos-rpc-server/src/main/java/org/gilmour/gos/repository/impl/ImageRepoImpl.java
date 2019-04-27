@@ -5,7 +5,7 @@ import org.apache.commons.lang3.SerializationUtils;
 import org.gilmour.gos.common.DataServer;
 import org.gilmour.gos.common.impl.ZooKeeperResolver;
 import org.gilmour.gos.conf.SSDBConf;
-import org.gilmour.gos.models.DefaultGIamgeImpl;
+import org.gilmour.gos.models.DefaultGImageImpl;
 import org.gilmour.gos.models.GImage;
 import org.gilmour.gos.pb.FileTransProto;
 import org.gilmour.gos.repository.ImageRepo;
@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
-import java.io.ObjectOutput;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.UUID;
@@ -63,7 +62,7 @@ public class ImageRepoImpl implements ImageRepo {
 
         client.close();
 
-        return new DefaultGIamgeImpl(fileResponse.getFile().getFileData().toByteArray());
+        return new DefaultGImageImpl(fileResponse.getFile().getFileData().toByteArray());
     }
 
     @Override

@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
 
-public final class DefaultGIamgeImpl implements GImage {
+public final class DefaultGImageImpl implements GImage {
 
     private int height;
     private int width;
     private ImageFormat Format;
     private byte[] data;
 
-    public DefaultGIamgeImpl(URI uri, ImageFormat format) throws IOException {
+    public DefaultGImageImpl(URI uri, ImageFormat format) throws IOException {
         data = IOUtils.toByteArray(uri);
         BufferedImage imageReader = ImageIO.read(new ByteArrayInputStream(data));
         height = imageReader.getHeight();
@@ -25,7 +25,7 @@ public final class DefaultGIamgeImpl implements GImage {
         Format = format;
     }
 
-    public DefaultGIamgeImpl(byte[] data) throws IOException{
+    public DefaultGImageImpl(byte[] data) throws IOException{
         this.data = data;
         BufferedImage imageReader = ImageIO.read(new ByteArrayInputStream(data));
         height = imageReader.getHeight();

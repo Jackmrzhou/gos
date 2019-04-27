@@ -1,6 +1,6 @@
 package org.gilmour.gos.web.controller;
 
-import org.gilmour.gos.models.DefaultGIamgeImpl;
+import org.gilmour.gos.models.DefaultGImageImpl;
 import org.gilmour.gos.services.ImageService;
 import org.gilmour.gos.web.models.CommonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class ImageController {
 
     @RequestMapping(value = "/image", method = RequestMethod.POST)
     public CommonResponse PutImage(@RequestParam("image") MultipartFile image) throws IOException{
-        String GosKey = imageService.PutImage(new DefaultGIamgeImpl(image.getBytes()));
+        String GosKey = imageService.PutImage(new DefaultGImageImpl(image.getBytes()));
         CommonResponse resp = new CommonResponse();
         resp.setCode(200);
         resp.setMsg("ok");
