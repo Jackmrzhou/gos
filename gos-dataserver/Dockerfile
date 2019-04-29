@@ -1,0 +1,13 @@
+FROM java:8
+
+ENV JAVA_WORKSPACE /javaworkspace
+ENV TARGET gos-dataserver-1.0-SNAPSHOT.jar
+ENV STORE_PATH /gos/data
+
+WORKDIR $STORE_PATH
+WORKDIR $JAVA_WORKSPACE
+COPY target/$TARGET .
+
+EXPOSE 9001
+
+ENTRYPOINT ["java", "-jar", "$TARGET"]

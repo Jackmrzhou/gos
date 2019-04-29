@@ -23,8 +23,8 @@ public class ImageController {
     public ResponseEntity<byte[]> GetImage(@PathVariable("GosKey") String GosKey) throws IOException {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setCacheControl(CacheControl.noCache().getHeaderValue());
-        httpHeaders.add("Content-Type", " application/octet-stream");
-        httpHeaders.add("Content-Disposition", "inline;filename=" + GosKey + ".jpg");
+        httpHeaders.add("Content-Type", "image/jpeg");
+        //httpHeaders.add("Content-Disposition", "inline;filename=" + GosKey + ".jpg");
         ResponseEntity<byte[]> responseEntity =
                 new ResponseEntity<>(imageService.GetImage(GosKey).ToByteArray(), httpHeaders, HttpStatus.OK);
         return responseEntity;
