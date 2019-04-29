@@ -2,11 +2,10 @@ FROM java:8
 
 ENV JAVA_WORKSPACE /javaworkspace
 ENV TARGET gos-rpc-server-1.0-SNAPSHOT.jar
-ENV JAVA_OPTS=""
 
 WORKDIR $JAVA_WORKSPACE
 COPY target/$TARGET .
 
 EXPOSE 9966
 
-ENTRYPOINT "java" "$JAVA_OPTS" "-jar" "$TARGET"
+ENTRYPOINT "java" "-jar" "$TARGET"
