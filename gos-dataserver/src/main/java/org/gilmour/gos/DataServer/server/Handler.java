@@ -7,6 +7,7 @@ import org.gilmour.gos.DataServer.service.FileService;
 import org.gilmour.gos.pb.FileTransProto;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -31,13 +32,12 @@ class Handler implements Runnable {
             FileTransProto.FileRequest fileRequest = FileTransProto.FileRequest.parseDelimitedFrom(in);
 
             if (fileRequest.getOperation().equals(FileTransProto.FileRequest.FileOperation.GET)){
-                // double copy here.
-                // todo:need optimization
-                byte[] fileData = IOUtils.toByteArray(fileService.GetFile(fileRequest.getFileID()));
+                BufferedInputStream bis = new BufferedInputStream(fileService.GetFile(fileRequest.getFileID()));
+                ByteString fileData = ByteString.readFrom(bis, 4096);
                 FileTransProto.CommonFile file = FileTransProto.CommonFile.newBuilder()
                         .setFileID(fileRequest.getFileID())
-                        .setFileData(ByteString.copyFrom(fileData))
-                        .setFileSize(fileData.length)
+                        .setFileData(fileData)
+                        .setFileSize(fileData.size())
                         .build();
 
                 fileResponseBuilder.setFile(file).setStatus(FileTransProto.FileResponse.Status.OK);
