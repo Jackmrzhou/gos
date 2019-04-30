@@ -1,5 +1,6 @@
 package org.gilmour.gos.servicesImpl;
 
+import org.gilmour.gos.aspects.LogTime;
 import org.gilmour.gos.models.GImage;
 import org.gilmour.gos.repository.ImageRepo;
 import org.gilmour.gos.services.ImageService;
@@ -22,6 +23,7 @@ public class ImageServiceImpl implements ImageService {
         return null;
     }
 
+    @LogTime
     @Override
     public GImage GetImage(String GosKey) {
         try {

@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>org.gilmour.gos</groupId>
-            <artifactId>gos-rpc-api</artifactId>
+            <artifactId>gos-rpc-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

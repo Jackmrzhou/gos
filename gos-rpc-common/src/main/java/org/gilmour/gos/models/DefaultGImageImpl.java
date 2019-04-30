@@ -1,6 +1,7 @@
 package org.gilmour.gos.models;
 
 import org.apache.commons.io.IOUtils;
+import org.gilmour.gos.aspects.LogTime;
 import org.gilmour.gos.enums.ImageFormat;
 
 import javax.imageio.ImageIO;
@@ -53,6 +54,7 @@ public final class DefaultGImageImpl implements GImage {
         return Format;
     }
 
+    @LogTime
     @Override
     public byte[] ToByteArray() {
         return Arrays.copyOf(data, data.length);
