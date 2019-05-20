@@ -10,4 +10,4 @@ COPY target/$TARGET .
 
 EXPOSE 9001
 
-ENTRYPOINT ["java", "-jar", "$TARGET"]
+ENTRYPOINT "java" "-jar" "$TARGET"
