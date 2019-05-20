@@ -9,7 +9,7 @@ public class ZooKeeperResolver implements Resolver {
 
     @Override
     public DataServer GetDataServer() {
-        return new DataServer("1","10.214.213.13", 9001);
+        return new DataServer("1","10.214.213.43", 9001);
     }
 
     @Override
