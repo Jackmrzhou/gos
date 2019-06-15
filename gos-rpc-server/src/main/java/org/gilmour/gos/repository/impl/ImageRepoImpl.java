@@ -38,7 +38,8 @@ public class ImageRepoImpl implements ImageRepo {
             throw new Exception("required object not found");
         }
 
-        DataServer dataServer = SerializationUtils.deserialize(response.datas.get(0));
+        // DataServer dataServer = SerializationUtils.deserialize(response.datas.get(0));
+        DataServer dataServer = zooKeeperResolver.GetDataServer();
         ssdb.close();
 
         if (!zooKeeperResolver.CheckDataServer(dataServer)){
