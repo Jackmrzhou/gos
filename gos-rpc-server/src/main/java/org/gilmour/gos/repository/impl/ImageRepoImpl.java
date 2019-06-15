@@ -12,6 +12,8 @@ import org.gilmour.gos.repository.ImageRepo;
 import org.nutz.ssdb4j.SSDBs;
 import org.nutz.ssdb4j.spi.Response;
 import org.nutz.ssdb4j.spi.SSDB;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +26,7 @@ import java.util.UUID;
 
 @Repository
 public class ImageRepoImpl implements ImageRepo {
+    Logger logger = LoggerFactory.getLogger(ImageRepoImpl.class);
 
     @Autowired
     private ZooKeeperResolver zooKeeperResolver;
@@ -51,6 +54,7 @@ public class ImageRepoImpl implements ImageRepo {
                 .setFileID(key)
                 .build();
 
+        logger.info(dataServer.getHost(), dataServer.getPort());
         Socket client = new Socket(dataServer.getHost(), dataServer.getPort());
         InputStream in = client.getInputStream();
         OutputStream out = client.getOutputStream();
