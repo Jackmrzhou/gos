@@ -8,6 +8,6 @@ spring:
       max-request-size: 15MB
 
 ssdb:
-  host: 10.214.213.12
+  host: 10.214.213.42
   port: 8888
   timeout: 1000
