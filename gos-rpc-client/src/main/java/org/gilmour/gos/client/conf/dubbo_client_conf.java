@@ -30,7 +30,7 @@ public class dubbo_client_conf {
     public RegistryConfig registryConfig(){
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setProtocol("zookeeper");
-        registryConfig.setAddress("10.214.213.13:2181");
+        registryConfig.setAddress("10.214.213.43:2181");
         return registryConfig;
     }
 }

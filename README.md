@@ -7,7 +7,7 @@
 #### 上传图片
 
 ```
-POST 10.214.213.13:9966/image
+POST 10.214.213.43:9966/image
 key:image
 value:图片对象
 
@@ -22,7 +22,7 @@ value:图片对象
 #### 下载图片
 
 ```
-GET 10.214.213.13:9966/image/{GosKey}
+GET 10.214.213.43:9966/image/{GosKey}
 其中GosKey就是上传后返回的key
 ```
 
